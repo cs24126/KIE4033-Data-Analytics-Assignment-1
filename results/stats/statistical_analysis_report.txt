@@ -1,0 +1,119 @@
+========================================================================================
+KIE4033 ASSIGNMENT 1 — STATISTICAL HYPOTHESIS TESTING & DIAGNOSTICS REPORT
+========================================================================================
+
+--- RQ1: ASSUMPTION CHECKS (SHAPIRO-WILK NORMALITY PER INCOME GROUP) ---
+                 variable        income_group  n  shapiro_W    shapiro_p  normal_at_0.05
+health_exp_per_capita_usd          Low income 24     0.9367 1.379465e-01            True
+health_exp_per_capita_usd Lower middle income 50     0.7965 7.277864e-07           False
+health_exp_per_capita_usd Upper middle income 53     0.8900 1.499242e-04           False
+health_exp_per_capita_usd         High income 64     0.8618 3.821917e-06           False
+      physicians_per_1000          Low income 22     0.4001 1.716751e-08           False
+      physicians_per_1000 Lower middle income 48     0.7862 6.422027e-07           False
+      physicians_per_1000 Upper middle income 48     0.8578 3.519616e-05           False
+      physicians_per_1000         High income 59     0.9363 4.082140e-03           False
+
+--- RQ1: LEVENE HOMOGENEITY & KRUSKAL-WALLIS OMNIBUS RESULTS ---
+                 variable  n_total  any_group_non_normal  levene_stat     levene_p  equal_var_at_0.05  kruskal_H    kruskal_p  epsilon_sq
+health_exp_per_capita_usd      191                  True      39.0662 1.197014e-19              False   163.8547 2.698923e-35      0.8602
+      physicians_per_1000      177                  True      10.2933 2.859950e-06              False   119.7915 8.557464e-26      0.6751
+   hospital_beds_per_1000      149                  True       1.7259 1.642853e-01               True    52.7988 2.023699e-11      0.3434
+          life_expectancy      215                  True       2.5625 5.582109e-02               True   139.3067 5.332678e-30      0.6460
+under5_mortality_per_1000      194                  True      23.8219 3.930501e-13              False   133.0552 1.187429e-28      0.6845
+
+--- RQ1: DUNN'S POST-HOC (HOLM-ADJUSTED P-VALUES) — HEALTH EXP. PER CAPITA ---
+                    Low income Lower middle income Upper middle income High income
+Low income              1.0000              0.0158            5.48e-09    1.07e-25
+Lower middle income     0.0158              1.0000            1.23e-05    2.64e-24
+Upper middle income   5.48e-09            1.23e-05              1.0000    3.68e-08
+High income           1.07e-25            2.64e-24            3.68e-08      1.0000
+
+--- RQ1: DUNN'S POST-HOC (HOLM-ADJUSTED P-VALUES) — PHYSICIANS PER 1,000 ---
+                    Low income Lower middle income Upper middle income High income
+Low income              1.0000              0.0159            6.70e-09    2.82e-19
+Lower middle income     0.0159              1.0000            1.54e-05    4.30e-17
+Upper middle income   6.70e-09            1.54e-05              1.0000      0.0003
+High income           2.82e-19            4.30e-17              0.0003      1.0000
+
+
+--- RQ2: SPEARMAN RANK CORRELATIONS WITH 95% BOOTSTRAP CI ---
+                  outcome                 predictor   n  spearman_rho  ci95_low  ci95_high      p_value
+          life_expectancy health_exp_per_capita_usd 191        0.8485    0.7854     0.8934 3.946334e-54
+          life_expectancy        health_exp_pct_gdp 191        0.3648    0.2098     0.5008 2.122905e-07
+          life_expectancy       physicians_per_1000 177        0.8115    0.7466     0.8559 1.078749e-42
+          life_expectancy    hospital_beds_per_1000 149        0.5290    0.3885     0.6446 4.050764e-12
+          life_expectancy        gdp_per_capita_usd 210        0.8670    0.8229     0.8984 7.763396e-65
+under5_mortality_per_1000 health_exp_per_capita_usd 190       -0.8755   -0.9042    -0.8306 2.780761e-61
+under5_mortality_per_1000        health_exp_pct_gdp 190       -0.4375   -0.5658    -0.3036 2.762854e-10
+under5_mortality_per_1000       physicians_per_1000 177       -0.8625   -0.8951    -0.8146 1.226617e-53
+under5_mortality_per_1000    hospital_beds_per_1000 149       -0.6670   -0.7534    -0.5576 1.582870e-20
+under5_mortality_per_1000        gdp_per_capita_usd 190       -0.8662   -0.8976    -0.8220 1.556125e-58
+
+--- RQ2: OLS REGRESSION MODEL COMPARISON & DIAGNOSTICS ---
+                      model                outcome   n     r2  adj_r2     aic     bic  resid_shapiro_W  resid_shapiro_p  bp_lm_stat     bp_p  max_vif  n_cooks_gt_4_over_n  max_cooks_d
+      M0a_Linear_Spend_Only        life_expectancy 191 0.3897  0.3865 1233.23 1239.74           0.9226     1.664076e-08      0.0249 0.874690    1.000                    7       0.6841
+       M0b_Log10_Spend_Only        life_expectancy 191 0.6857  0.6840 1106.50 1113.01           0.8978     3.602888e-10      3.7746 0.052035    1.000                    8       0.2406
+M1_Primary_Spend_Physicians        life_expectancy 177 0.7139  0.7106 1011.52 1021.05           0.9120     8.228316e-09      6.7332 0.034507    2.552                   10       0.1891
+             M2_GDP_Control        life_expectancy 175 0.7354  0.7308  985.89  998.55           0.9232     5.494649e-08     10.9373 0.012070   15.690                   12       0.3456
+      M3_Plus_Hospital_Beds        life_expectancy 140 0.7822  0.7774  711.04  722.81           0.9834     8.757408e-02     13.9323 0.002999    2.514                    6       0.0997
+    M4_Sensitivity_Excl_CAF        life_expectancy 176 0.7448  0.7419  967.03  976.54           0.9698     7.187635e-04     12.1084 0.002348    2.534                   12       0.0914
+  M5_Log10_Under5_Mortality log10_under5_mortality 177 0.8031  0.8008  -37.45  -27.92           0.9923     4.697676e-01      0.3748 0.829122    2.552                    9       0.2555
+
+--- RQ2: OLS COEFFICIENTS (WITH HC3 ROBUST STANDARD ERRORS & VIF) ---
+                      model                        term    coef  se_ols  se_hc3   t_hc3         p_hc3    vif
+      M0a_Linear_Spend_Only                       const 68.9994  0.5154  0.5730 120.417 1.287554e-180    NaN
+      M0a_Linear_Spend_Only   health_exp_per_capita_usd  0.0023  0.0002  0.0003   7.465  2.968821e-12  1.000
+       M0b_Log10_Spend_Only                       const 48.4809  1.1984  1.3128  36.931  2.260947e-88    NaN
+       M0b_Log10_Spend_Only log10_health_exp_per_capita  9.0417  0.4453  0.4448  20.327  1.921700e-49  1.000
+M1_Primary_Spend_Physicians                       const 50.2784  1.4838  1.5826  31.770  2.418214e-74    NaN
+M1_Primary_Spend_Physicians log10_health_exp_per_capita  7.8730  0.7142  0.7146  11.018  9.396361e-22  2.552
+M1_Primary_Spend_Physicians         physicians_per_1000  0.7019  0.2841  0.2676   2.623  9.488555e-03  2.552
+             M2_GDP_Control                       const 39.0156  3.3056  4.6966   8.307  2.890946e-14    NaN
+             M2_GDP_Control log10_health_exp_per_capita  1.9392  1.7189  2.2726   0.853  3.946898e-01 15.690
+             M2_GDP_Control         physicians_per_1000  0.7065  0.2721  0.2485   2.843  5.013295e-03  2.518
+             M2_GDP_Control        log10_gdp_per_capita  7.0064  1.8544  2.6080   2.687  7.932197e-03 14.054
+      M3_Plus_Hospital_Beds                       const 51.4597  1.2151  1.4068  36.580  2.987129e-72    NaN
+      M3_Plus_Hospital_Beds log10_health_exp_per_capita  8.2004  0.5706  0.5764  14.228  1.048792e-28  2.265
+      M3_Plus_Hospital_Beds         physicians_per_1000  0.0305  0.2421  0.1975   0.154  8.776439e-01  2.514
+      M3_Plus_Hospital_Beds      hospital_beds_per_1000  0.0723  0.1329  0.1106   0.654  5.143887e-01  1.475
+    M4_Sensitivity_Excl_CAF                       const 51.0727  1.3344  1.3637  37.451  6.605840e-85    NaN
+    M4_Sensitivity_Excl_CAF log10_health_exp_per_capita  7.6323  0.6407  0.6675  11.435  6.537907e-23  2.534
+    M4_Sensitivity_Excl_CAF         physicians_per_1000  0.6874  0.2544  0.2662   2.582  1.064018e-02  2.534
+  M5_Log10_Under5_Mortality                       const  2.5423  0.0766  0.0824  30.868  1.710955e-72    NaN
+  M5_Log10_Under5_Mortality log10_health_exp_per_capita -0.4677  0.0369  0.0439 -10.657  9.902040e-21  2.552
+  M5_Log10_Under5_Mortality         physicians_per_1000 -0.0701  0.0147  0.0206  -3.410  8.073560e-04  2.552
+
+--- RQ2: TOP 10 INFLUENTIAL COUNTRIES IN PRIMARY MODEL M1 (COOK'S DISTANCE) ---
+iso3                  country  life_expectancy  log10_health_exp_per_capita  physicians_per_1000    fitted   residual  cooks_d
+ CAF Central African Republic          38.7040                     1.651113              0.04220 63.307233 -24.603233 0.189103
+ CUB                     Cuba          76.6152                     3.028660              9.00375 80.442624  -3.827424 0.075906
+ USA            United States          77.6340                     4.057251              3.36080 84.580068  -6.946068 0.041024
+ NGA                  Nigeria          53.2568                     1.869987              0.37260 65.262332 -12.005532 0.033378
+ LSO                  Lesotho          55.2082                     2.154037              0.34600 67.479996 -12.271796 0.031907
+ TCD                     Chad          53.2372                     1.548841              0.05960 62.514257  -9.277057 0.030912
+ SWZ                 Eswatini          59.9350                     2.456932              0.29490 69.828830  -9.893830 0.030104
+ TUV                   Tuvalu          66.2026                     3.023721              1.34600 75.028918  -8.826318 0.028339
+ PLW                    Palau          68.8290                     3.287153              2.16860 77.680287  -8.851287 0.027777
+ NAM                  Namibia          63.0472                     2.626573              0.41120 71.246044  -8.198844 0.024694
+
+
+--- RQ3: PAIRED WILCOXON SIGNED-RANK TESTS (2017-2019 vs. 2020-2022) ---
+                   metric  n_pairs  n_increased  n_decreased  median_pre  median_post  median_diff  median_diff_ci95_low  median_diff_ci95_high  mean_diff  diff_shapiro_W  diff_shapiro_p  wilcoxon_stat  wilcoxon_p_two_sided wilcoxon_alt_dir  wilcoxon_p_one_sided  rank_biserial_r
+       health_exp_pct_gdp      191          154           37       6.049        6.681        0.617                 0.529                  0.733      0.573          0.8274    8.872004e-14         2698.0          2.731111e-17          greater          1.365556e-17           0.7058
+health_exp_per_capita_usd      191          161           30     360.683      423.670       47.983                27.377                 72.036    171.571          0.7070    4.756540e-18         1990.0          6.411293e-21          greater          3.205646e-21           0.7829
+          life_expectancy      215           82          133      73.933       73.095       -0.247                -0.464                 -0.083     -0.332          0.8326    1.780713e-14         7326.0          2.718025e-06             less          1.359013e-06          -0.3690
+
+--- RQ3: INCOME-STRATIFIED COVID FINANCING & LONGEVITY SHIFTS ---
+                              metric        income_group  n  median    iqr  pct_positive  within_group_wilcoxon_p  between_groups_kw_H  between_groups_kw_p  between_groups_eps_sq
+             health_exp_pct_gdp_diff          Low income 24   0.300  1.135          62.5             8.937323e-02                4.574         2.058163e-01                 0.0084
+             health_exp_pct_gdp_diff Lower middle income 50   0.596  1.088          72.0             2.308750e-04                4.574         2.058163e-01                 0.0084
+             health_exp_pct_gdp_diff Upper middle income 53   0.618  0.723          86.8             9.781141e-06                4.574         2.058163e-01                 0.0084
+             health_exp_pct_gdp_diff         High income 64   0.748  0.760          89.1             3.395174e-10                4.574         2.058163e-01                 0.0084
+health_exp_per_capita_usd_pct_change          Low income 24  15.021 21.747          79.2             8.714795e-03                0.357         9.489822e-01                -0.0141
+health_exp_per_capita_usd_pct_change Lower middle income 50  17.273 27.533          80.0             5.070202e-06                0.357         9.489822e-01                -0.0141
+health_exp_per_capita_usd_pct_change Upper middle income 53  17.221 29.288          81.1             3.579357e-06                0.357         9.489822e-01                -0.0141
+health_exp_per_capita_usd_pct_change         High income 64  15.230 15.631          92.2             8.614122e-12                0.357         9.489822e-01                -0.0141
+                life_expectancy_diff          Low income 25   0.547  0.617          84.0             9.118915e-04               50.993         4.909093e-11                 0.2275
+                life_expectancy_diff Lower middle income 50   0.157  1.128          56.0             5.526670e-01               50.993         4.909093e-11                 0.2275
+                life_expectancy_diff Upper middle income 54  -0.782  1.516          24.1             4.225604e-07               50.993         4.909093e-11                 0.2275
+                life_expectancy_diff         High income 86  -0.443  0.863          23.3             7.086848e-08               50.993         4.909093e-11                 0.2275

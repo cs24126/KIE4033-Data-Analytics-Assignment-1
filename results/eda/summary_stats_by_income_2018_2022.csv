@@ -1,0 +1,33 @@
+variable,income_group,n_valid,median,iqr,mean,std,min,max
+health_exp_per_capita_usd,Low income,24,40.9,22.492,41.93,18.408,13.982,78.681
+health_exp_per_capita_usd,Lower middle income,50,90.035,100.385,137.174,105.452,37.266,452.451
+health_exp_per_capita_usd,Upper middle income,53,430.621,245.723,471.244,229.091,129.421,1142.394
+health_exp_per_capita_usd,High income,64,2274.083,3625.059,3338.332,2634.872,377.014,11409.093
+health_exp_pct_gdp,Low income,24,5.563,4.442,6.476,3.455,2.593,17.834
+health_exp_pct_gdp,Lower middle income,50,4.58,3.115,5.371,2.599,2.222,13.403
+health_exp_pct_gdp,Upper middle income,53,6.065,3.177,6.865,2.896,2.929,19.679
+health_exp_pct_gdp,High income,64,7.922,3.773,8.088,2.801,2.204,17.091
+gdp_per_capita_usd,Low income,22,715.262,312.857,690.38,193.591,260.756,985.152
+gdp_per_capita_usd,Lower middle income,50,2249.423,1833.325,2486.958,1103.058,897.71,6268.268
+gdp_per_capita_usd,Upper middle income,54,6538.592,3566.556,6962.758,2204.277,3872.86,11382.814
+gdp_per_capita_usd,High income,84,33007.456,31858.43,42777.508,33483.661,9400.857,201762.471
+physicians_per_1000,Low income,22,0.103,0.091,0.183,0.303,0.034,1.51
+physicians_per_1000,Lower middle income,48,0.419,0.626,0.687,0.683,0.062,2.622
+physicians_per_1000,Upper middle income,48,2.028,1.8,2.26,1.714,0.153,9.004
+physicians_per_1000,High income,59,3.466,1.501,3.571,1.219,0.719,8.505
+hospital_beds_per_1000,Low income,16,0.697,0.732,1.446,3.056,0.2,12.8
+hospital_beds_per_1000,Lower middle income,32,1.24,1.366,1.648,1.36,0.17,4.944
+hospital_beds_per_1000,Upper middle income,44,2.868,2.569,3.248,2.035,0.444,9.98
+hospital_beds_per_1000,High income,57,3.12,3.186,4.118,2.449,1.11,12.706
+life_expectancy,Low income,25,62.083,5.34,61.758,6.58,38.704,73.162
+life_expectancy,Lower middle income,50,67.008,7.361,67.29,5.408,53.257,76.885
+life_expectancy,Upper middle income,54,73.006,4.215,72.68,3.617,62.431,79.333
+life_expectancy,High income,86,80.236,5.812,79.022,4.336,61.484,85.837
+infant_mortality_per_1000,Low income,25,47.3,25.0,49.763,21.292,14.32,116.12
+infant_mortality_per_1000,Lower middle income,50,31.22,23.8,30.99,15.83,6.0,69.48
+infant_mortality_per_1000,Upper middle income,54,12.32,8.935,14.818,9.585,2.26,53.94
+infant_mortality_per_1000,High income,65,3.52,3.42,5.658,4.831,1.44,26.32
+under5_mortality_per_1000,Low income,25,64.9,41.64,75.896,41.705,17.72,220.48
+under5_mortality_per_1000,Lower middle income,50,38.48,33.6,39.752,23.773,6.92,117.42
+under5_mortality_per_1000,Upper middle income,54,14.06,11.27,17.568,12.533,2.94,77.94
+under5_mortality_per_1000,High income,65,4.42,4.06,6.635,5.389,1.48,28.68

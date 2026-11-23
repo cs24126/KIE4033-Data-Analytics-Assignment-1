@@ -1,0 +1,13 @@
+metric,income_group,n,median,iqr,pct_positive,within_group_wilcoxon_p,between_groups_kw_H,between_groups_kw_p,between_groups_eps_sq
+health_exp_pct_gdp_diff,Low income,24,0.3,1.135,62.5,0.08937323093414307,4.574,0.20581633262967514,0.0084
+health_exp_pct_gdp_diff,Lower middle income,50,0.596,1.088,72.0,0.0002308749851795966,4.574,0.20581633262967514,0.0084
+health_exp_pct_gdp_diff,Upper middle income,53,0.618,0.723,86.8,9.781141041528363e-06,4.574,0.20581633262967514,0.0084
+health_exp_pct_gdp_diff,High income,64,0.748,0.76,89.1,3.3951744638964386e-10,4.574,0.20581633262967514,0.0084
+health_exp_per_capita_usd_pct_change,Low income,24,15.021,21.747,79.2,0.008714795112609863,0.357,0.948982214369999,-0.0141
+health_exp_per_capita_usd_pct_change,Lower middle income,50,17.273,27.533,80.0,5.070202146129077e-06,0.357,0.948982214369999,-0.0141
+health_exp_per_capita_usd_pct_change,Upper middle income,53,17.221,29.288,81.1,3.5793567725873228e-06,0.357,0.948982214369999,-0.0141
+health_exp_per_capita_usd_pct_change,High income,64,15.23,15.631,92.2,8.614121606027472e-12,0.357,0.948982214369999,-0.0141
+life_expectancy_diff,Low income,25,0.547,0.617,84.0,0.0009118914604187012,50.993,4.909093050879493e-11,0.2275
+life_expectancy_diff,Lower middle income,50,0.157,1.128,56.0,0.5526669770606443,50.993,4.909093050879493e-11,0.2275
+life_expectancy_diff,Upper middle income,54,-0.782,1.516,24.1,4.225604412041475e-07,50.993,4.909093050879493e-11,0.2275
+life_expectancy_diff,High income,86,-0.443,0.863,23.3,7.086847666467164e-08,50.993,4.909093050879493e-11,0.2275

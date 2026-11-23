@@ -1,0 +1,9 @@
+,health_exp_per_capita_usd,health_exp_pct_gdp,gdp_per_capita_usd,physicians_per_1000,hospital_beds_per_1000,life_expectancy,infant_mortality_per_1000,under5_mortality_per_1000
+health_exp_per_capita_usd,1.0,0.5575,0.9661,0.8585,0.5996,0.8485,-0.867,-0.8755
+health_exp_pct_gdp,0.5575,1.0,0.3601,0.4828,0.3719,0.3648,-0.4269,-0.4375
+gdp_per_capita_usd,0.9661,0.3601,1.0,0.8271,0.5704,0.867,-0.8615,-0.8662
+physicians_per_1000,0.8585,0.4828,0.8271,1.0,0.7182,0.8115,-0.8536,-0.8625
+hospital_beds_per_1000,0.5996,0.3719,0.5704,0.7182,1.0,0.529,-0.6719,-0.667
+life_expectancy,0.8485,0.3648,0.867,0.8115,0.529,1.0,-0.9255,-0.9284
+infant_mortality_per_1000,-0.867,-0.4269,-0.8615,-0.8536,-0.6719,-0.9255,1.0,0.996
+under5_mortality_per_1000,-0.8755,-0.4375,-0.8662,-0.8625,-0.667,-0.9284,0.996,1.0

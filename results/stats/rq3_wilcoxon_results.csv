@@ -1,0 +1,4 @@
+metric,n_pairs,n_increased,n_decreased,median_pre,median_post,median_diff,median_diff_ci95_low,median_diff_ci95_high,mean_diff,diff_shapiro_W,diff_shapiro_p,wilcoxon_stat,wilcoxon_p_two_sided,wilcoxon_alt_dir,wilcoxon_p_one_sided,rank_biserial_r
+health_exp_pct_gdp,191,154,37,6.049,6.681,0.617,0.529,0.733,0.573,0.8274,8.872004124662326e-14,2698.0,2.731111324427079e-17,greater,1.3655556622135395e-17,0.7058
+health_exp_per_capita_usd,191,161,30,360.683,423.67,47.983,27.377,72.036,171.571,0.707,4.756540091101858e-18,1990.0,6.411292580814808e-21,greater,3.205646290407404e-21,0.7829
+life_expectancy,215,82,133,73.933,73.095,-0.247,-0.464,-0.083,-0.332,0.8326,1.7807132817847098e-14,7326.0,2.7180250628475582e-06,less,1.3590125314237791e-06,-0.369

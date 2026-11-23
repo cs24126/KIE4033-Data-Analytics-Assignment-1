@@ -1,0 +1,11 @@
+outcome,predictor,n,spearman_rho,ci95_low,ci95_high,p_value
+life_expectancy,health_exp_per_capita_usd,191,0.8485,0.7854,0.8934,3.9463344034120194e-54
+life_expectancy,health_exp_pct_gdp,191,0.3648,0.2098,0.5008,2.1229051097607138e-07
+life_expectancy,physicians_per_1000,177,0.8115,0.7466,0.8559,1.0787492865957909e-42
+life_expectancy,hospital_beds_per_1000,149,0.529,0.3885,0.6446,4.050764330405881e-12
+life_expectancy,gdp_per_capita_usd,210,0.867,0.8229,0.8984,7.7633963681882e-65
+under5_mortality_per_1000,health_exp_per_capita_usd,190,-0.8755,-0.9042,-0.8306,2.7807610722429312e-61
+under5_mortality_per_1000,health_exp_pct_gdp,190,-0.4375,-0.5658,-0.3036,2.7628543797468124e-10
+under5_mortality_per_1000,physicians_per_1000,177,-0.8625,-0.8951,-0.8146,1.2266165220819643e-53
+under5_mortality_per_1000,hospital_beds_per_1000,149,-0.667,-0.7534,-0.5576,1.5828702904108826e-20
+under5_mortality_per_1000,gdp_per_capita_usd,190,-0.8662,-0.8976,-0.822,1.5561249467697618e-58

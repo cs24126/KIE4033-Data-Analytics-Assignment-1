@@ -1,0 +1,21 @@
+variable,income_group,n,shapiro_W,shapiro_p,normal_at_0.05
+health_exp_per_capita_usd,Low income,24,0.9367,0.13794648258226244,True
+health_exp_per_capita_usd,Lower middle income,50,0.7965,7.277863620181876e-07,False
+health_exp_per_capita_usd,Upper middle income,53,0.89,0.00014992424485802533,False
+health_exp_per_capita_usd,High income,64,0.8618,3.821916955472299e-06,False
+physicians_per_1000,Low income,22,0.4001,1.716750886870007e-08,False
+physicians_per_1000,Lower middle income,48,0.7862,6.422026921940285e-07,False
+physicians_per_1000,Upper middle income,48,0.8578,3.519615615155852e-05,False
+physicians_per_1000,High income,59,0.9363,0.004082140296333842,False
+hospital_beds_per_1000,Low income,16,0.3923,3.0717577984221943e-07,False
+hospital_beds_per_1000,Lower middle income,32,0.8177,8.941911902065251e-05,False
+hospital_beds_per_1000,Upper middle income,44,0.9058,0.0016441759018424567,False
+hospital_beds_per_1000,High income,57,0.8471,4.04170157092995e-06,False
+life_expectancy,Low income,25,0.8665,0.0036854242293373196,False
+life_expectancy,Lower middle income,50,0.9829,0.6786729802439364,True
+life_expectancy,Upper middle income,54,0.96,0.06860648350400642,True
+life_expectancy,High income,86,0.909,1.5746621800538987e-05,False
+under5_mortality_per_1000,Low income,25,0.8676,0.0038722423969222578,False
+under5_mortality_per_1000,Lower middle income,50,0.9044,0.0006725654923427772,False
+under5_mortality_per_1000,Upper middle income,54,0.7851,1.834526876324677e-07,False
+under5_mortality_per_1000,High income,65,0.7531,4.153557195443646e-09,False

@@ -1,0 +1,64 @@
+================================================================================
+KIE4033 ASSIGNMENT 1 — EXPLORATORY DATA ANALYSIS SUMMARY
+================================================================================
+
+1. OVERALL SUMMARY STATISTICS (2018-2022 Cross-Section, 215 Classified Countries)
+                 variable  n_valid  n_missing      mean       std   median       q1        q3       iqr     min        max  skewness
+health_exp_per_capita_usd      191         24  1290.545  2113.302  411.371   83.153  1318.062  1234.910  13.982  11409.093     2.489
+       health_exp_pct_gdp      191         24     6.835     3.032    6.310    4.580     8.618     4.038   2.204     19.679     1.062
+       gdp_per_capita_usd      210          5 19565.885 28489.178 7097.716 2606.911 26590.360 23983.450 260.756 201762.471     3.023
+      physicians_per_1000      177         38     2.012     1.771    1.698    0.389     3.292     2.903   0.034      9.004     0.941
+   hospital_beds_per_1000      149         66     3.044     2.442    2.510    1.182     4.218     3.036   0.170     12.800     1.633
+          life_expectancy      215          0    72.693     7.691   73.487   67.037    78.173    11.136  38.704     85.837    -0.710
+infant_mortality_per_1000      194         21    20.420    19.381   13.400    5.475    31.620    26.145   1.440    116.120     1.527
+under5_mortality_per_1000      194         21    27.139    30.478   15.510    6.525    41.040    34.515   1.480    220.480     2.398
+
+
+2. SUMMARY STATISTICS BY WORLD BANK INCOME GROUP (Selected Core Variables)
+                 variable        income_group  n_valid   median      iqr     mean      std     min       max
+health_exp_per_capita_usd          Low income       24   40.900   22.492   41.930   18.408  13.982    78.681
+health_exp_per_capita_usd Lower middle income       50   90.035  100.385  137.174  105.452  37.266   452.451
+health_exp_per_capita_usd Upper middle income       53  430.621  245.723  471.244  229.091 129.421  1142.394
+health_exp_per_capita_usd         High income       64 2274.083 3625.059 3338.332 2634.872 377.014 11409.093
+      physicians_per_1000          Low income       22    0.103    0.091    0.183    0.303   0.034     1.510
+      physicians_per_1000 Lower middle income       48    0.419    0.626    0.687    0.683   0.062     2.622
+      physicians_per_1000 Upper middle income       48    2.028    1.800    2.260    1.714   0.153     9.004
+      physicians_per_1000         High income       59    3.466    1.501    3.571    1.219   0.719     8.505
+          life_expectancy          Low income       25   62.083    5.340   61.758    6.580  38.704    73.162
+          life_expectancy Lower middle income       50   67.008    7.361   67.290    5.408  53.257    76.885
+          life_expectancy Upper middle income       54   73.006    4.215   72.680    3.617  62.431    79.333
+          life_expectancy         High income       86   80.236    5.812   79.022    4.336  61.484    85.837
+under5_mortality_per_1000          Low income       25   64.900   41.640   75.896   41.705  17.720   220.480
+under5_mortality_per_1000 Lower middle income       50   38.480   33.600   39.752   23.773   6.920   117.420
+under5_mortality_per_1000 Upper middle income       54   14.060   11.270   17.568   12.533   2.940    77.940
+under5_mortality_per_1000         High income       65    4.420    4.060    6.635    5.389   1.480    28.680
+
+
+3. SPEARMAN RANK CORRELATION MATRIX (rho)
+                           health_exp_per_capita_usd  health_exp_pct_gdp  gdp_per_capita_usd  physicians_per_1000  hospital_beds_per_1000  life_expectancy  infant_mortality_per_1000  under5_mortality_per_1000
+health_exp_per_capita_usd                      1.000               0.557               0.966                0.858                   0.600            0.849                     -0.867                     -0.875
+health_exp_pct_gdp                             0.557               1.000               0.360                0.483                   0.372            0.365                     -0.427                     -0.437
+gdp_per_capita_usd                             0.966               0.360               1.000                0.827                   0.570            0.867                     -0.861                     -0.866
+physicians_per_1000                            0.858               0.483               0.827                1.000                   0.718            0.812                     -0.854                     -0.862
+hospital_beds_per_1000                         0.600               0.372               0.570                0.718                   1.000            0.529                     -0.672                     -0.667
+life_expectancy                                0.849               0.365               0.867                0.812                   0.529            1.000                     -0.925                     -0.928
+infant_mortality_per_1000                     -0.867              -0.427              -0.861               -0.854                  -0.672           -0.925                      1.000                      0.996
+under5_mortality_per_1000                     -0.875              -0.437              -0.866               -0.862                  -0.667           -0.928                      0.996                      1.000
+
+
+4. YEAR-BY-YEAR MEDIANS ACROSS 2017-2022 (Complete Financing Countries, n=191)
+ year  n_health_exp  median_health_exp_pct_gdp  median_health_exp_per_capita_usd  median_gdp_per_capita_usd  median_life_expectancy
+ 2017           191                      6.174                            338.61                    6000.93                  72.984
+ 2018           191                      5.938                            362.76                    6125.05                  73.016
+ 2019           191                      5.785                            380.53                    6188.34                  73.084
+ 2020           191                      6.727                            386.26                    5570.90                  72.253
+ 2021           191                      6.673                            432.62                    6061.32                  71.596
+ 2022           190                      6.576                            448.24                    6626.48                  73.331
+
+
+5. GENERATED EDA FIGURES (saved in figures/)
+  - figures/fig01_spearman_correlation_heatmap.png
+  - figures/fig02_income_tier_distributions.png
+  - figures/fig03_preston_diminishing_returns.png
+  - figures/fig04_longitudinal_trends_2000_2022.png
+  - figures/fig05_covid_shift_overview.png
