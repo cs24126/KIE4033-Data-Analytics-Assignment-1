@@ -68,8 +68,6 @@ This project applies **Exploratory Data Analysis (EDA)** and **non-parametric & 
 │   │   └── (Summary tables, Spearman matrix & eda_summary_report.txt)
 │   └── stats/
 │       └── (Hypothesis tests, OLS/VIF/Cook's D tables & statistical_analysis_report.txt)
-├── EDA_AND_ANALYSIS_NOTES.md                    (Checklist of data caveats & diagnostic checks)
-├── KIE4033_20262027S1_Assignment1.pdf           (Assignment brief & rubric)
 ├── requirements.txt
 └── README.md
 ```
@@ -88,19 +86,17 @@ This project applies **Exploratory Data Analysis (EDA)** and **non-parametric & 
    * **5-Year Cross-Section (`cleaned_sdg3_cross_section_2018_2022.csv`):** 215 countries × 14 columns averaging `2018–2022` values, with $\log_{10}$ variables computed **after** aggregation so `log10_health_exp_per_capita == log10(health_exp_per_capita_usd)` exactly.
    * **Pre-/Post-COVID Paired (`cleaned_sdg3_covid_paired.csv`):** 215 countries × 17 columns comparing `2017–2019` vs. `2020–2022` averages across `health_exp_pct_gdp`, `health_exp_per_capita_usd`, `gdp_per_capita_usd`, and `life_expectancy` (191 complete financing pairs), enabling downstream separation of real spending growth from the 2020 GDP denominator contraction.
 
-### Planned Exploratory Data Analysis (`scripts/02_exploratory_data_analysis.py`)
+### Exploratory Data Analysis (`scripts/02_exploratory_data_analysis.py`)
 * Spearman rank correlation matrix across financing, workforce, and health outcome indicators.
-* Income-tier distribution comparisons (boxplots/violin plots) highlighting skewness, efficiency outliers, and crisis-mortality anomalies.
+* Income-tier distribution comparisons (boxplots/strip plots) highlighting skewness, efficiency outliers, and crisis-mortality anomalies.
 * Preston-style log-linear scatter analysis illustrating diminishing marginal returns on health spending.
 * Longitudinal time-series trends (`2000–2022`) tracking health spending and physician density across income groups.
 
-### Planned Statistical Hypothesis Testing (`scripts/03_statistical_hypothesis_testing.py`)
+### Statistical Hypothesis Testing (`scripts/03_statistical_hypothesis_testing.py`)
 * **Assumption Verification:** Shapiro-Wilk normality tests and Levene's homogeneity of variance tests prior to test selection.
-* **RQ1:** Kruskal-Wallis $H$-test across the 4 income groups followed by Dunn's post-hoc pairwise comparisons with Holm/Bonferroni adjustment (plus effect sizes $\epsilon^2$).
+* **RQ1:** Kruskal-Wallis $H$-test across the 4 income groups followed by Dunn's post-hoc pairwise comparisons with Holm adjustment (plus effect sizes $\epsilon^2$).
 * **RQ2:** Spearman rank correlation ($\rho$) and Ordinary Least Squares (OLS) multiple linear regression modeling health outcomes against $\log_{10}(\text{health\_exp\_per\_capita\_usd})$ and `physicians_per_1000`, with VIF, residual/Cook's distance diagnostics, and outlier sensitivity checks.
 * **RQ3:** Wilcoxon signed-rank tests comparing paired national `health_exp_pct_gdp` and `health_exp_per_capita_usd` before (`2017–2019`) and during (`2020–2022`) the COVID-19 pandemic.
-
-*(See [EDA_AND_ANALYSIS_NOTES.md](EDA_AND_ANALYSIS_NOTES.md) for the full checklist of data caveats, outliers, and diagnostic tests to incorporate when authoring the EDA and statistical analysis scripts.)*
 
 ---
 
