@@ -190,9 +190,11 @@ def compute_summary_tables(cs: pd.DataFrame, panel: pd.DataFrame, covid: pd.Data
 # ---------------------------------------------------------------------------
 # Figure 1: Spearman Correlation Matrix Heatmap
 # ---------------------------------------------------------------------------
-def plot_spearman_heatmap(rho_mat: pd.DataFrame, pval_mat: pd.DataFrame):
+def plot_spearman_heatmap(rho_mat: pd.DataFrame, pval_mat: pd.DataFrame, n_mat: pd.DataFrame):
     labels = [VAR_LABELS[c] for c in KEY_VARS]
     mask = np.triu(np.ones_like(rho_mat, dtype=bool), k=1)
+    off_diag_n = n_mat.values[np.tril_indices(len(KEY_VARS), k=-1)]
+    n_min, n_max = int(off_diag_n.min()), int(off_diag_n.max())
 
     annot = pd.DataFrame("", index=KEY_VARS, columns=KEY_VARS)
     for i, c1 in enumerate(KEY_VARS):
@@ -226,7 +228,7 @@ def plot_spearman_heatmap(rho_mat: pd.DataFrame, pval_mat: pd.DataFrame):
     )
     ax.set_title(
         "Spearman Rank Correlation Matrix of Health Financing, Workforce & Outcomes\n"
-        "(2018–2022 Country Averages; pairwise complete n = 135–215)",
+        f"(2018–2022 Country Averages; pairwise complete n = {n_min}–{n_max})",
         pad=14,
         fontsize=12.5,
     )
@@ -724,7 +726,7 @@ def main():
         cs, panel, covid
     )
 
-    plot_spearman_heatmap(rho_mat, pval_mat)
+    plot_spearman_heatmap(rho_mat, pval_mat, n_mat)
     plot_income_distributions(cs)
     plot_preston_curves(cs)
     plot_longitudinal_trends(panel)
