@@ -5,7 +5,7 @@
 **Course:** KIE4033 – Exploratory Data Analytics  
 **Assignment:** Assignment 1 (2026/2027 Semester 1)  
 **Theme:** UN Sustainable Development Goal 3 – Good Health and Well-Being (Targets 3.8 & 3.c)  
-**Group:** Group XY *(Update with your group number and member names)*  
+**Group:** Group 2 | 22108446/1 & 22117429/2  
 
 ---
 
